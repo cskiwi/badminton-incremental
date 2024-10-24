@@ -169,6 +169,8 @@ export class GameService {
         if (this.tournamentTimeLeft() === 0) {
           this.endTournament();
         }
+      } else {
+        this.startTournament();
       }
     }, 1000);
 
