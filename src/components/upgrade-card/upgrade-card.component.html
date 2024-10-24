@@ -1,0 +1,24 @@
+<mat-card [ngClass]="{'locked': !upgrade.unlocked}">
+  <mat-card-header>
+    <mat-card-title>{{ upgrade.name }}</mat-card-title>
+    <mat-card-subtitle>{{ upgrade.category | titlecase }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>{{ upgrade.description }}</p>
+    <p>Owned: {{ upgrade.owned }}{{ upgrade.maxOwned ? ' / ' + upgrade.maxOwned : '' }}</p>
+    <p>Cost: {{ upgrade.cost | number:'1.0-0' }} points</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button 
+      mat-raised-button 
+      color="primary"
+      [disabled]="points() < upgrade.cost || !upgrade.unlocked || (upgrade.maxOwned && upgrade.owned >= upgrade.maxOwned)"
+      (click)="purchase()">
+      @if (!upgrade.unlocked) {
+        Unlock at {{ upgrade.cost / 2 | number:'1.0-0' }} points
+      } @else {
+        Purchase
+      }
+    </button>
+  </mat-card-actions>
+</mat-card>

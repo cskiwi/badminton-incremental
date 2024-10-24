@@ -1,0 +1,49 @@
+<mat-toolbar color="primary">
+  <span>Badminton Incremental</span>
+</mat-toolbar>
+
+<div class="game-container">
+  <app-stats></app-stats>
+
+  <button 
+    mat-raised-button 
+    color="accent" 
+    class="hit-button"
+    (click)="hitShuttle()">
+    Hit Shuttle
+  </button>
+
+  <mat-tab-group>
+    <mat-tab label="Upgrades">
+      <div class="upgrades-grid">
+        @for (upgrade of upgrades(); track upgrade.name) {
+          @if (upgrade.category === 'click') {
+            <app-upgrade-card [upgrade]="upgrade"></app-upgrade-card>
+          }
+        }
+      </div>
+
+      <h2>Passive Income</h2>
+      <div class="upgrades-grid">
+        @for (upgrade of upgrades(); track upgrade.name) {
+          @if (upgrade.category === 'passive') {
+            <app-upgrade-card [upgrade]="upgrade"></app-upgrade-card>
+          }
+        }
+      </div>
+
+      <h2>Special Upgrades</h2>
+      <div class="upgrades-grid">
+        @for (upgrade of upgrades(); track upgrade.name) {
+          @if (upgrade.category === 'special') {
+            <app-upgrade-card [upgrade]="upgrade"></app-upgrade-card>
+          }
+        }
+      </div>
+    </mat-tab>
+    
+    <mat-tab label="Achievements">
+      <app-achievements></app-achievements>
+    </mat-tab>
+  </mat-tab-group>
+</div>

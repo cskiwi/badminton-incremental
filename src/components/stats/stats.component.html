@@ -1,0 +1,52 @@
+<div class="stats-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Points</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p class="stat-value">{{ points() | number:'1.0-0' }}</p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Points per Click</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p class="stat-value">{{ pointsPerClick() | number:'1.0-1' }}</p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Points per Second</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p class="stat-value">{{ pointsPerSecond() | number:'1.0-1' }}</p>
+    </mat-card-content>
+  </mat-card>
+
+  @if (prestige() > 0) {
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Prestige Level</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p class="stat-value">{{ prestige() }}</p>
+      </mat-card-content>
+    </mat-card>
+  }
+</div>
+
+@if (isTournamentActive()) {
+  <div class="tournament-banner">
+    <p>Tournament Active! {{ tournamentTimeLeft() }}s left</p>
+    <p>{{ tournamentMultiplier() }}x Points Multiplier!</p>
+  </div>
+}
+
+@if (isDoublePointsActive()) {
+  <div class="special-event-banner">
+    <p>Double Points Event! {{ specialEventTimeLeft() }}s left</p>
+  </div>
+}

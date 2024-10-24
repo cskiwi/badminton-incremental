@@ -1,0 +1,39 @@
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin: 16px 0;
+}
+
+.tournament-banner {
+  background: #4CAF50;
+  color: white;
+  padding: 16px;
+  border-radius: 4px;
+  text-align: center;
+  margin-bottom: 20px;
+  animation: pulse 2s infinite;
+}
+
+.special-event-banner {
+  background: #FFC107;
+  color: black;
+  padding: 16px;
+  border-radius: 4px;
+  text-align: center;
+  margin-bottom: 20px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
